@@ -3,7 +3,7 @@
 $servername = "localhost"; 
 $username = "root";
 $password = "rootpassword";
-$dbname = "recipie_finder";
+$dbname = "recipe_finder";
 $port = "3307";
 
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
