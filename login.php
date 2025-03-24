@@ -2,7 +2,7 @@
 
 $servername = "localhost"; 
 $username = "root";
-$password = "root";
+$password = "rootpassword";
 $dbname = "recipie_finder";
 $port = "3307"; 
 
@@ -19,7 +19,7 @@ else
         {
             $usernm = $_POST['username'];
             $passwd = $_POST['password'];
-            $sql = "SELECT id FROM login WHERE username='$usernm' AND pass='$passwd'";
+            $sql = "SELECT id FROM login WHERE username='$usernm' AND password='$passwd'";
             $result = $conn->query($sql);
             if($result->num_rows > 0)
             {
@@ -55,7 +55,7 @@ else
             display: flex;
             justify-content: center;
             align-items: center;
-            background: url('img/top-view-cut-vegetables-wooden-spoons-with-peppers-beans-tomatoes-cinnamons.jpg') no-repeat center center/cover;
+            background: url('bg.jpg') no-repeat center center/cover;
             font-family: 'Poppins', sans-serif;
         }
 
