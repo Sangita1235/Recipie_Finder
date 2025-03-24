@@ -2,7 +2,7 @@
 
 $servername = "localhost"; 
 $username = "root";
-$password = "root";
+$password = "rootpassword";
 $dbname = "recipie_finder";
 $port = "3307";
 
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result->num_rows > 0) {
             echo '<script>alert("Username already exists. Choose a different username!"); window.location.href="register.php";</script>';
         } else {
-            $sql = $conn->prepare("INSERT INTO login(username, pass) VALUES (?, ?)");
+            $sql = $conn->prepare("INSERT INTO login(username, password) VALUES (?, ?)");
             $sql->bind_param("ss", $usnm, $psswd);
             
             if ($sql->execute()) {
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: url('img/top-view-cut-vegetables-wooden-spoons-with-peppers-beans-tomatoes-cinnamons.jpg') no-repeat center center/cover;
+            background: url('bg.jpg') no-repeat center center/cover;
             font-family: 'Poppins', sans-serif;
         }
 
