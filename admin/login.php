@@ -137,7 +137,7 @@ else
 <body>
 
 <div class="login-container">
-    <h2>🍽️ Recipe Finder Login</h2>
+    <h2>🍽️ Recipe Finder Admin Login</h2>
     <form action="login.php" method="post">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" placeholder="Enter your username" required />
