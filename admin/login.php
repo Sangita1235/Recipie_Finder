@@ -147,7 +147,7 @@ else
         
         <button type="submit">Login</button>
     </form>
-        <a href="register.php">🚀 Join Us Now!</a>
+     
 
 </div>
 
