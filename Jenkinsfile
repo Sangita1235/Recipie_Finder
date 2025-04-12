@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/Sangita1235/Recipie_Finder.git'
+                git branch: 'main', url: 'https://github.com/Sangita1235/Recipie_Finder.git'
             }
         }
 
@@ -23,7 +23,7 @@ pipeline {
 
     post {
         always {
-            echo ' run: docker-compose down'
+            echo 'run: docker-compose down'
         }
     }
 }
