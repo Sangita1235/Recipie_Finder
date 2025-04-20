@@ -3,7 +3,7 @@
 $servername = "mysql_container"; 
 $username = "root"; 
 $password = "rootpassword"; 
-$database = "recipe_finder"; 
+$dbname = "recipe_finder"; 
 $port = "3307"; 
 
 
