@@ -2,7 +2,7 @@
 $servername = "mysql_container"; // change this if your DB service has a different name in docker-compose
 $username = "root";
 $password = "rootpassword"; // replace with your MySQL root password
-$database = "recipie_finder";     // replace with your actual DB name
+$database = "recipe_finder";     // replace with your actual DB name
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
