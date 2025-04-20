@@ -1,9 +1,10 @@
 <?php 
 
-$servername = "mysql_container"; 
-$username = "root"; 
-$password = "rootpassword"; 
-$database = "recipe_finder"; 
+$servername = "localhost"; 
+$username = "root";
+$password = "rootpassword";
+$dbname = "recipe_finder";
+$port = "3307"; 
 
 
 $conn = new mysqli($servername, $username, $password, $dbname,$port);
@@ -43,9 +44,7 @@ else
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Recipe Finder</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-
+    
     <style>
         body {
             margin: 0;

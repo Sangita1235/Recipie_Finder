@@ -1,107 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {
   box-sizing: border-box;
 }
 
-input[type=text], select, textarea {
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
   width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
   padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
 }
 
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
+#myTable tr {
+  border-bottom: 1px solid #ddd;
 }
 
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
 }
 </style>
 </head>
 <body>
+<h2>Search Your Recipe</h2>
 
-<h2>Recipe/Cuisine Form</h2>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for recipe.." title="Type in a name">
 
-<div class="container">
-  <form action="/action_page.php">
-  <div class="row">
-    <div class="col-25">
-      <label for="fname">Recipe/Cuisine Name</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="fname" name="recipename" placeholder="Enter Your recipe name..">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-      <label for="country">Recipe Type</label>
-    </div>
-    <div class="col-75">
-      <select id="country" name="country">
-        <option value="Indian">Indian</option>
-        <option value="Chinese">Chinese</option>
-        <option value="Italian">Italian</option>
-      </select>
-    </div>
-  </div>
-  </div>
-  <br>
-  <div class="row">
-    <input type="submit" value="Submit">
-  </div>
-  </form>
-</div>
+<table id="myTable">
+  <tr class="header">
+
+    <th style="width:40%;">RECIPE NAME</th>
+    <th style="width:40%;">RECIPE IMAGE</th>
+    <th style="width:20%;">VIEW INGREDIENTS</th>
+  </tr>
+<?php
+
+
+$db=mysqli_connect("localhost","root","rootpassword","recipe_finder","3307");
+
+
+$query = "SELECT * FROM RECEIPE;";
+
+$query=mysqli_query($db,$query) or die('error');
+while ($row=mysqli_fetch_array($query,MYSQLI_ASSOC)) 
+    {
+ 
+ 
+        ?>
+
+ <td><?php echo $row["R_NAME"]?></td>
+ <td><?php echo '<img src="data:image/jpg;base64,'. base64_encode($row['R_IMAGE']).'" width=50px heigth=100px;>';?></td>
+
+ <td><?php echo "<a href=ingredient.php?R_ID=".$row['R_ID'].">VIEW</a>" ?></td>
+    
+  </tr>
+ 
+  <?php
+}
+?>
+</table>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 
 </body>
 </html>
-
-

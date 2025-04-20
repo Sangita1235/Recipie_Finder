@@ -1,8 +1,8 @@
 <?php
-$servername = "mysql_container"; // DB container name in the same Docker network
+$servername = "mysql_container"; 
 $username = "root"; 
-$password = "rootpassword"; // MySQL root password
-$database = "recipe_finder"; // Database name
+$password = "rootpassword"; 
+$database = "recipe_finder"; 
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
