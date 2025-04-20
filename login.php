@@ -1,6 +1,6 @@
 <?php 
 
-servername = "mysql_container"; 
+$servername = "mysql_container"; 
 $username = "root"; 
 $password = "rootpassword"; 
 $database = "recipe_finder"; 
