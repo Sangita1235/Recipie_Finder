@@ -1,9 +1,9 @@
 <?php 
 
-$servername = "localhost"; 
-$username = "root";
-$password = "rootpassword";
-$dbname = "recipe_finder";
+servername = "mysql_container"; 
+$username = "root"; 
+$password = "rootpassword"; 
+$database = "recipe_finder"; 
 $port = "3307"; 
 
 
