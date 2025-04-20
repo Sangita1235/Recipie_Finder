@@ -1,13 +1,12 @@
 <?php 
 
-$servername = "localhost"; 
-$username = "root";
-$password = "rootpassword";
-$dbname = "recipe_finder";
-$port = "3307"; 
+$servername = "mysql_container"; 
+$username = "root"; 
+$password = "rootpassword"; 
+$database = "recipe_finder"; 
 
 
-$conn = new mysqli($servername, $username, $password, $dbname,$port);
+$conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     echo("Connection failed: " . $conn->connect_error);
 }
