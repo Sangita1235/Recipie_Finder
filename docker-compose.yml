@@ -8,6 +8,6 @@ services:
       - recipie-net
    
 networks:
-  cms-network:
+  recipie-net:
     external: true
     
