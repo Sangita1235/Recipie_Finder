@@ -1,8 +1,8 @@
 <?php
-$servername = "mysql_container"; // change this if your DB service has a different name in docker-compose
-$username = "root";
-$password = "rootpassword"; // replace with your MySQL root password
-$database = "recipe_finder";     // replace with your actual DB name
+$servername = "mysql_container"; // DB container name in the same Docker network
+$username = "root"; 
+$password = "rootpassword"; // MySQL root password
+$database = "recipe_finder"; // Database name
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -12,4 +12,11 @@ if ($conn->connect_error) {
     die("❌ Connection failed: " . $conn->connect_error);
 }
 echo "✅ Connected successfully to the database!";
+
+// Redirect to login.php
+header("Location: login.php");
+exit();
+
+// Close the connection
+$conn->close();
 ?>
