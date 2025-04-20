@@ -4,10 +4,10 @@ $servername = "mysql_container";
 $username = "root"; 
 $password = "rootpassword"; 
 $dbname = "recipe_finder"; 
-$port = "3306"; 
 
 
-$conn = new mysqli($servername, $username, $password, $dbname,$port);
+
+$conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     echo("Connection failed: " . $conn->connect_error);
 }
