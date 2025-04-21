@@ -81,7 +81,7 @@ while($row=mysqli_fetch_array($query1,MYSQLI_ASSOC))
   </tr>
 <?php
 
-$db=mysqli_connect("localhost","root","rootpassword","recipe_finder","3307");
+$db=mysqli_connect("mysql_container","root","rootpassword","recipe_finder");
 
 if(isset($_REQUEST["R_ID"]))
 {
