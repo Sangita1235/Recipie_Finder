@@ -36,7 +36,7 @@ body {
 
 <?php
 
-$db=mysqli_connect("localhost","root","rootpassword","recipe_finder","3307");
+$db=mysqli_connect("localhost","root","rootpassword","recipe_finder");
 
 if(isset($_REQUEST["R_ID"]))
 {
